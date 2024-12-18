@@ -1,9 +1,11 @@
-const puppeteer = require('puppeteer-core');
-const executablePath = '/opt/render/puppeteer-chromium/chrome-linux/chrome'; // Correct path for Render
+const puppeteer = require('puppeteer');
+
 const axios = require('axios');
 
 const API_KEY = "28a2678e3048869c27acd536fb4740c9";
 (async () => {
+    const executablePath = '/opt/render/puppeteer-chromium/chrome-linux/chrome'; // Chromium path
+    console.log(`Attempting to use browser at: ${executablePath}`);
     const browser = await puppeteer.launch({ headless: true, 
         args: [
             '--no-sandbox',
@@ -11,7 +13,6 @@ const API_KEY = "28a2678e3048869c27acd536fb4740c9";
             '--disable-dev-shm-usage',
             '--remote-debugging-port=9222',
           ],
-          executablePath: executablePath,
           
 });
     const page = await browser.newPage();
