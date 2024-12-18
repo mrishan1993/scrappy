@@ -5,7 +5,7 @@ const axios = require('axios');
 require("dotenv").config()
 
 
-const API_KEY = process.env.CAPTCHA; 
+const API_KEY = "28a2678e3048869c27acd536fb4740c9"
 (async () => {
     const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
