@@ -21,9 +21,9 @@ const API_KEY = "28a2678e3048869c27acd536fb4740c9";
 
     while (true){
         await page.goto('https://www.amazon.com',{ waitUntil: 'domcontentloaded', timeout: 0 });
-        const randomTimeToSearch = Math.floor(Math.random() * (15000 - 5000 + 1)) + 0;
-        const randomTimeToClick = Math.floor(Math.random() * (15000 - 5000 + 1)) + 0;
-        const randomTimeToStay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 0;
+        const randomTimeToSearch = Math.floor(Math.random() * 5001) + 0;
+        const randomTimeToClick = Math.floor(Math.random() * 5001) + 0;
+        const randomTimeToStay = Math.floor(Math.random() * 5001) + 0;
         const searchTerms = [
             "ice cream scoop",
             "ripple double coffee cups",
@@ -154,21 +154,21 @@ const pause = function (ms) {
 
 // Auto scroll function
 const autoScroll = async (page) => {
-    // await page.evaluate(async () => {
-    //     await new Promise((resolve) => {
-    //         let totalHeight = 0;
-    //         const distance = 100;
-    //         const timer = setInterval(() => {
-    //             const scrollHeight = document.body.scrollHeight;
-    //             window.scrollBy(0, distance);
-    //             totalHeight += distance;
-    //             if (totalHeight >= scrollHeight) {
-    //                 clearInterval(timer);
-    //                 resolve();
-    //             }
-    //         }, 100);
-    //     });
-    // });
+    await page.evaluate(async () => {
+        await new Promise((resolve) => {
+            let totalHeight = 0;
+            const distance = 100;
+            const timer = setInterval(() => {
+                const scrollHeight = document.body.scrollHeight;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+                if (totalHeight >= scrollHeight) {
+                    clearInterval(timer);
+                    resolve();
+                }
+            }, 100);
+        });
+    });
 };
 
 async function isCaptchaPresent(page) {
