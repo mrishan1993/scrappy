@@ -4,9 +4,9 @@ puppeteer.use(StealthPlugin());
 const axios = require('axios');
 
 
-const API_KEY = "28a2678e3048869c27acd536fb4740c9"
+const API_KEY = '28a2678e3048869c27acd536fb4740c9'
 (async () => {
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     console.log( "starting a new window")
     let counter = 0
