@@ -4,16 +4,14 @@ const axios = require('axios');
 
 const API_KEY = "28a2678e3048869c27acd536fb4740c9";
 (async () => {
-    const executablePath = '/opt/render/puppeteer-chromium/chrome-linux/chrome'; // Chromium path
-    console.log(`Attempting to use browser at: ${executablePath}`);
+    // const executablePath = '/opt/render/puppeteer-chromium/chrome-linux/chrome'; // Chromium path
+    // console.log(`Attempting to use browser at: ${executablePath}`);
     const browser = await puppeteer.launch({ headless: true, 
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--remote-debugging-port=9222',
           ],
-          
+          executablePath: '/snap/bin/chromium'
 });
     const page = await browser.newPage();
     console.log( "starting a new window")
