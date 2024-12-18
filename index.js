@@ -2,11 +2,11 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 const axios = require('axios');
-
+const executable = '/app/.apt/usr/bin/chromium-browser'; 
 
 const API_KEY = "28a2678e3048869c27acd536fb4740c9";
 (async () => {
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'], executablePath: '/app/.apt/usr/bin/chromium-browser' });
+    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'], executablePath: executable });
     const page = await browser.newPage();
     console.log( "starting a new window")
     let counter = 0
