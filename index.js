@@ -2,7 +2,6 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 const axios = require('axios');
-require("dotenv").config()
 
 
 const API_KEY = "28a2678e3048869c27acd536fb4740c9"
