@@ -6,7 +6,7 @@ const executable = '/app/.apt/usr/bin/chromium-browser';
 
 const API_KEY = "28a2678e3048869c27acd536fb4740c9";
 (async () => {
-    const browser = await puppeteer.launch({ headless: false, 
+    const browser = await puppeteer.launch({ headless: true, 
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
