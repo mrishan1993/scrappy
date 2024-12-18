@@ -6,7 +6,14 @@ const executable = '/app/.apt/usr/bin/chromium-browser';
 
 const API_KEY = "28a2678e3048869c27acd536fb4740c9";
 (async () => {
-    const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'], // Default path for Heroku
+    const browser = await puppeteer.launch({ headless: false, 
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--remote-debugging-port=9222',
+          ],
+          
 });
     const page = await browser.newPage();
     console.log( "starting a new window")
